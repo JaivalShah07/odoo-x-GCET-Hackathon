@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HRMS Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="./assets/style/admindash.css">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <div class="logo">DayFlow</div>
+        <div class="menu-item active"><i class="fas fa-home"></i> Dashboard</div>
+        <div class="menu-item"><i class="fas fa-user-friends"></i><a href="./employees.html">Employees</a></div>
+        <div class="menu-item"><i class="fas fa-suitcase"></i> Leave</div>
+        <div class="menu-item"><i class="fa-solid fa-indian-rupee-sign"></i> Payroll</div>
+    </nav>
+
+    <!-- Overlay -->
+    <div id="overlay"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="header">
+            <div class="hamburger"><i class="fas fa-bars"></i></div>
+            <div class="user-profile">
+                <img src="./assets/images/avatar.jpg" alt="avatar" class="avatar">
+                <span style="font-weight:600;" id="loggedInUser"></span>
+            </div>
+
+            <button id="logoutBtn" class="logout-btn">
+                <i class="fas fa-right-from-bracket"></i> Logout
+            </button>
+        </div>
+
+        <!-- Stats Row -->
+        <div class="stats-row">
+            <div class="card">
+                <div class="icon-box" style="background:#5da77e;"><i class="fas fa-id-badge"></i></div>
+                <div class="stat-details">
+                    <h2>34</h2>
+                    <p>Present</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="icon-box" style="background:#7fb598;"><i class="fas fa-briefcase"></i></div>
+                <div class="stat-details">
+                    <h2>5</h2>
+                    <p>Tasks</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="icon-box" style="background:#5da77e;"><i class="fas fa-calendar-times"></i></div>
+                <div class="stat-details">
+                    <h2>8</h2>
+                    <p>Leaves</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Row -->
+        <div class="charts-row">
+            <div class="chart-box">
+                <h3>Attendance</h3>
+                <div class="chart-container"><canvas id="attendancePie"></canvas></div>
+            </div>
+            <div class="chart-box">
+                <h3>Weekly Trend</h3>
+                <div class="chart-container"><canvas id="mainChart"></canvas></div>
+            </div>
+        </div>
+
+        <!-- Bottom Row -->
+        <div class="bottom-row">
+            <div class="chart-box">
+                <h3 style="margin-bottom: 10px;">Employees</h3>
+                <div class="employee-item"><img src="./assets/images/avatar.jpg" class="avatar">
+                    <div class="employee-info">
+                        <h4>John Doe</h4>
+                        <p>Developer</p>
+                    </div>
+                </div>
+                <div class="employee-item"><img src="./assets/images/avatar.jpg" class="avatar">
+                    <div class="employee-info">
+                        <h4>Jane Smith</h4>
+                        <p>Designer</p>
+                    </div>
+                </div>
+                <div class="employee-item"><img src="./assets/images/avatar.jpg" class="avatar">
+                    <div class="employee-info">
+                        <h4>Mike Brown</h4>
+                        <p>Manager</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chart-box">
+                <h3 style="margin-bottom: 10px;">Progress Summary</h3>
+                <div class="progress-box">
+                    <div class="donut-wrapper"><canvas id="progressDonut"></canvas></div>
+                    <div class="legend">
+                        <p><span class="dot" style="background:#5da77e"></span> Complete</p>
+                        <p><span class="dot" style="background:#eee"></span> Pending</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="task-card">
+                <h3>Pending Tasks</h3>
+                <h2>2</h2>
+                <p>Tasks remaining</p>
+                <div class="task-list-item"><span>12 Completed</span> <span>2</span></div>
+                <div class="task-list-item"><span>2 Pending</span> <span>1</span></div>
+                <div class="task-list-item"><span>1 Overdue</span></div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const sidebar = document.querySelector('nav.sidebar');
+        const overlay = document.getElementById('overlay');
+
+        hamburger.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('show');
+        });
+
+        overlay.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('show');
+        });
+
+        // Charts
+        new Chart(document.getElementById('attendancePie'), {
+            type: 'pie',
+            data: { labels: ['Present', 'Absent', 'On Leave'], datasets: [{ data: [60, 15, 25], backgroundColor: ['#5da77e', '#88c9a1', '#cbf0dc'], borderWidth: 0 }] },
+            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
+        });
+        new Chart(document.getElementById('mainChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'], datasets: [
+                    { type: 'line', label: 'Trend', data: [12, 19, 10, 15, 22, 10, 8], borderColor: '#5da77e', tension: 0.4, pointRadius: 4, pointBackgroundColor: '#fff', borderWidth: 2 },
+                    { type: 'bar', label: 'Hours', data: [10, 15, 8, 12, 20, 8, 5], backgroundColor: '#cbf0dc', borderRadius: 4, barThickness: 15 }
+                ]
+            },
+            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, display: false }, x: { grid: { display: false } } } }
+        });
+        new Chart(document.getElementById('progressDonut'), {
+            type: 'doughnut',
+            data: { labels: ['Done', 'Pending'], datasets: [{ data: [75, 25], backgroundColor: ['#5da77e', '#eee'], borderWidth: 0 }] },
+            options: { responsive: true, maintainAspectRatio: false, cutout: '60%', plugins: { legend: { display: false } } }
+        });
+
+        //loggedInUser name display
+
+        const name = JSON.parse(localStorage.getItem("loggedInUser"))
+        if(name){
+            document.getElementById("loggedInUser").innerText = name.loginId;
+        }
+    </script>
+    <script src="./assets/JS/admin.js"></script>
+</body>
+
+</html>
