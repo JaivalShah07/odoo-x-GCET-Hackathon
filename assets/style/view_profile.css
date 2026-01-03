@@ -1,0 +1,172 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+body {
+  background: #FAFAFA;
+  color: #1B4332;
+}
+
+/* TOP NAV */
+.top-nav {
+  background: #2D6A4F;
+  padding: 14px 24px;
+}
+
+.nav-left {
+  display: flex;
+  gap: 28px;
+  color: #E9F5EE;
+}
+
+.logo {
+  font-weight: 600;
+}
+
+.nav-item {
+  cursor: pointer;
+}
+
+/* PAGE */
+.page {
+  max-width: 1200px;
+  margin: auto;
+  padding: 24px;
+}
+
+/* TITLE + BUTTON */
+.title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.page-title {
+  color: #2D6A4F;
+}
+
+/* EDIT BUTTON */
+.edit-btn {
+  background: #52B788;
+  border: none;
+  padding: 8px 16px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.edit-btn.active {
+  background: #D00000;
+}
+
+/* PROFILE HEADER */
+.profile-header {
+  display: grid;
+  grid-template-columns: 120px 1fr 1fr;
+  gap: 32px;
+  padding-bottom: 24px;
+  border-bottom: 2px solid #95D5B2;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #95D5B2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.basic-info,
+.company-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* INPUTS */
+input,
+select {
+  border: none;
+  border-bottom: 2px solid #95D5B2;
+  padding: 6px 4px;
+  background: transparent;
+  outline: none;
+}
+
+input:focus,
+select:focus {
+  border-color: #48CAE4;
+}
+
+.title-input {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* TABS */
+.tabs {
+  margin: 22px 0;
+}
+
+.tabs button {
+  background: none;
+  border: 2px solid #2D6A4F;
+  padding: 8px 16px;
+  margin-right: 8px;
+  cursor: pointer;
+  color: #2D6A4F;
+  transition: all 0.3s ease-in-out;
+}
+
+.tabs button:hover {
+  background: #95D5B2;
+  color: white;
+}
+
+.tabs .active {
+  background: #2D6A4F;
+  color: white;
+}
+
+/* CONTENT */
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+label {
+  font-size: 13px;
+  color: #2D6A4F;
+  margin-top: 10px;
+}
+
+.section-title {
+  margin-bottom: 12px;
+  color: #2D6A4F;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .profile-header {
+    grid-template-columns: 1fr;
+  }
+
+  .content {
+    grid-template-columns: 1fr;
+  }
+}

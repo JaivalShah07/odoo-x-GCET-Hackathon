@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Salary Info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/style/salary.css">
+</head>
+<body>
+
+<main class="page">
+
+  <h2 class="page-title">Salary Info</h2>
+
+  <!-- ===== SUMMARY BOX ===== -->
+  <section class="box">
+    <h3 class="box-title">Salary Summary</h3>
+
+    <div class="grid-2">
+      <div class="field-row">
+        <label>Monthly Wage</label>
+        <input type="number" placeholder="Enter monthly salary">
+      </div>
+
+      <div class="field-row">
+        <label>Yearly Wage</label>
+        <input type="number" placeholder="Auto calculated" disabled>
+      </div>
+
+      <div class="field-row">
+        <label>Working Days / Week</label>
+        <input type="number" placeholder="Enter days">
+      </div>
+
+      <div class="field-row">
+        <label>Break Time (hrs)</label>
+        <input type="number" placeholder="Enter break time">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <section class="content">
+
+    <!-- ===== SALARY COMPONENTS ===== -->
+    <section class="box">
+      <h3 class="box-title">Salary Components</h3>
+
+      <div class="field-row">
+        <label>Basic Salary</label>
+        <input type="number" placeholder="₹ / month">
+        <span class="percent">50%</span>
+      </div>
+
+      <div class="field-row">
+        <label>House Rent Allowance</label>
+        <input type="number" placeholder="₹ / month">
+        <span class="percent">50%</span>
+      </div>
+
+      <div class="field-row">
+        <label>Standard Allowance</label>
+        <input type="number" placeholder="₹ / month">
+        <span class="percent">16.67%</span>
+      </div>
+
+      <div class="field-row">
+        <label>Performance Bonus</label>
+        <input type="number" placeholder="₹ / month">
+        <span class="percent">8.33%</span>
+      </div>
+
+      <div class="field-row">
+        <label>Leave Travel Allowance</label>
+        <input type="number" placeholder="₹ / month">
+        <span class="percent">8.33%</span>
+      </div>
+
+      <div class="field-row">
+        <label>Fixed Allowance</label>
+        <input type="number" placeholder="₹ / month">
+        <span class="percent">11.67%</span>
+      </div>
+    </section>
+
+    <!-- ===== PF + TAX ===== -->
+    <section class="box">
+      <h3 class="box-title">PF & Tax Deductions</h3>
+
+      <div class="field-row">
+        <label>PF (Employee)</label>
+        <input type="number" placeholder="₹ / month">
+        <span class="percent">12%</span>
+      </div>
+
+      <div class="field-row">
+        <label>PF (Employer)</label>
+        <input type="number" placeholder="₹ / month">
+        <span class="percent">12%</span>
+      </div>
+
+      <div class="field-row">
+        <label>Professional Tax</label>
+        <input type="number" placeholder="₹ / month">
+      </div>
+    </section>
+
+  </section>
+
+</main>
+<script src="assets/JS/salary.js"></script>
+</body>
+</html>

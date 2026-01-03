@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Time Off</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/style/timeOff_admin.css">
+</head>
+
+<body>
+
+  <!-- TOP NAV -->
+  <header class="top-nav">
+    <div class="nav-left">
+      <h3 style="color: white;">DayFlow</h3>
+      <span class="nav-item" onclick="viewEmployees()">Employees</span>
+      <span class="nav-item" onclick="viewAttendance()">Attendance</span>
+      <span class="nav-item active">Time Off</span>
+    </div>
+  </header>
+
+  <main class="page">
+
+    <!-- PAGE TITLE -->
+    <section class="box">
+      <h2 class="box-title">Time Off</h2>
+
+      <div class="action-row">
+        <button class="new-btn">NEW</button>
+        <input type="text" placeholder="Search employee">
+      </div>
+    </section>
+
+    <!-- BALANCE -->
+    <section class="box">
+      <h3 class="box-title">Leave Balance</h3>
+
+      <div class="balance-grid">
+        <div class="balance-card">
+          <span class="label">Paid Time Off</span>
+          <span class="value">24 Days Available</span>
+        </div>
+
+        <div class="balance-card accent">
+          <span class="label">Sick Time Off</span>
+          <span class="value">07 Days Available</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- REQUEST TABLE -->
+    <section class="box">
+      <h3 class="box-title">Time Off Requests</h3>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th>Time Off Type</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>
+                <input type="text" placeholder="Emp Name">
+              </td>
+              <td>
+                <input type="date">
+              </td>
+              <td>
+                <input type="date">
+              </td>
+              <td>
+                <select>
+                  <option>Paid Time Off</option>
+                  <option>Sick Leave</option>
+                </select>
+              </td>
+              <td class="status-cell">
+                <span class="status rejected"></span>
+                <span class="status approved"></span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+  <script>
+    function viewEmployees() {
+      window.location.href = "employees.html";
+    }
+
+    function viewAttendance() {
+      window.location.href = "admin_attendance.html";
+    }
+  </script>
+</body>
+
+</html>

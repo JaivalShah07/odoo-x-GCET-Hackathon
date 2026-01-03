@@ -1,0 +1,160 @@
+/* ---------- RESET ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+body {
+  background: #FAFAFA;
+  color: #1B4332;
+}
+
+/* ---------- TOP NAV ---------- */
+.top-nav {
+  background: #2D6A4F;
+  padding: 14px 24px;
+  margin-bottom: 24px;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-left h3 {
+  color: white;
+}
+
+.nav-item {
+  color: #E9F5EE;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+}
+
+.nav-item:hover {
+  color: #95D5B2;
+}
+
+.nav-item.active {
+  color: #48CAE4;
+  font-weight: 600;
+}
+
+/* ---------- CARD ---------- */
+.card {
+  background: #FFFFFF;
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 10px 25px rgba(45, 106, 79, 0.12);
+}
+
+/* ---------- HEADINGS ---------- */
+.card h2 {
+  color: #2D6A4F;
+  font-size: 22px;
+}
+
+/* ---------- INPUT ---------- */
+input {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 2px solid #95D5B2;
+  outline: none;
+  font-size: 14px;
+  color: #1B4332;
+}
+
+input::placeholder {
+  color: #6B8F7A;
+}
+
+input:focus {
+  border-color: #48CAE4;
+}
+
+/* ---------- DATE CONTROLS ---------- */
+button {
+  background: #2D6A4F;
+  color: #FFFFFF;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover {
+  background: #40916C;
+}
+
+select {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 2px solid #95D5B2;
+  background: #FFFFFF;
+  color: #1B4332;
+  cursor: pointer;
+}
+
+strong {
+  color: #2D6A4F;
+}
+
+/* ---------- TABLE ---------- */
+.table-wrapper {
+  margin-top: 16px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px;
+}
+
+thead {
+  background: #95D5B2;
+}
+
+th {
+  padding: 14px;
+  text-align: left;
+  font-weight: 600;
+  color: #1B4332;
+}
+
+tbody tr {
+  border-bottom: 1px solid #E3EFE8;
+}
+
+tbody tr:hover {
+  background: #F1FBF6;
+}
+
+td {
+  padding: 12px 14px;
+  font-size: 14px;
+  color: #1B4332;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  .nav-left {
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .card {
+    padding: 18px;
+  }
+
+  strong {
+    font-size: 14px;
+  }
+}

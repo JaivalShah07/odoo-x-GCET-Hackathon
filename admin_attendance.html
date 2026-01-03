@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Attendance | Admin</title>
+  <link rel="stylesheet" href="assets/style/attedance_admin.css">
+</head>
+<body>
+
+<div class="top-nav dark-header">
+  <div class="nav-left">
+    <h3>DayFlow</h3>
+    <a class="nav-item" onclick="viewEmployees()">Employees</a>
+    <a class="nav-item active">Attendance</a>
+    <a class="nav-item" onclick="openTimeoff()">Time Off</a>
+  </div>
+</div>
+
+<div class="card">
+  <h2>Attendance</h2><br>
+  <input placeholder="Search employee"><br><br>
+
+  <div style="display:flex;gap:10px;align-items:center;">
+    <button>←</button>
+    <select><option>Date</option><option>Day</option></select>
+    <button>→</button>
+    <strong style="margin-left:auto">22 October 2025</strong>
+  </div><br>
+
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Employee ID</th>
+          <th>Check In</th>
+          <th>Check Out</th>
+          <th>Work Hours</th>
+          <th>Extra Hours</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>EMP2025001</td>
+          <td>10:00</td>
+          <td>19:00</td>
+          <td>09:00</td>
+          <td>01:00</td>
+        </tr>
+         <tr>
+          <td>EMP2025002</td>
+          <td>10:00</td>
+          <td>19:00</td>
+          <td>09:00</td>
+          <td>01:00</td>
+        </tr>
+         <tr>
+          <td>EMP2025003</td>
+          <td>10:00</td>
+          <td>19:00</td>
+          <td>09:00</td>
+          <td>01:00</td>
+        </tr>
+         <tr>
+          <td>EMP2025004</td>
+          <td>10:00</td>
+          <td>19:00</td>
+          <td>09:00</td>
+          <td>01:00</td>
+        </tr>
+         <tr>
+          <td>EMP2025005</td>
+          <td>10:00</td>
+          <td>19:00</td>
+          <td>09:00</td>
+          <td>01:00</td>
+        </tr>
+         <tr>
+          <td>EMP2025006</td>
+          <td>10:00</td>
+          <td>19:00</td>
+          <td>09:00</td>
+          <td>01:00</td>
+        </tr>
+         <tr>
+          <td>EMP2025007</td>
+          <td>10:00</td>
+          <td>19:00</td>
+          <td>09:00</td>
+          <td>01:00</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+    function viewEmployees() {
+      window.location.href = "employees.html";
+    }
+
+    function openTimeoff() {
+      window.location.href = "timeoff_admin.html";
+    }
+</script>
+</body>
+</html>

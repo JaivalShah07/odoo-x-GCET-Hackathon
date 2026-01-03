@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>My Profile</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="assets/style/view_profile.css">
+</head>
+
+<body>
+
+  <!-- TOP NAV -->
+  <header class="top-nav">
+    <div class="nav-left">
+      <span class="logo">DayFlow</span>
+      <span class="nav-item" onclick="viewEmployee()">Employees</span>
+      <span class="nav-item" onclick="viewAttendance()">Attendance</span>
+      <span class="nav-item" onclick="viewTimeoff()">Time Off</span>
+    </div>
+  </header>
+
+  <main class="page">
+
+    <!-- TITLE + BUTTON ROW -->
+    <div class="title-row">
+      <h2 class="page-title">My Profile</h2>
+      <button id="editBtn" class="edit-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Click to edit the employee information">Enable Edit</button>
+    </div>
+
+    <!-- PROFILE HEADER -->
+    <section class="profile-header">
+      <div class="avatar">✎</div>
+
+      <div class="basic-info">
+        <input class="title-input editable" placeholder="My Name">
+        <input class="editable" placeholder="Job Position">
+        <input class="editable" placeholder="Email">
+        <input class="editable" placeholder="Mobile">
+      </div>
+
+      <div class="company-info">
+        <input class="editable" placeholder="Company">
+        <input class="editable" placeholder="Department">
+        <input class="editable" placeholder="Manager">
+        <input class="editable" placeholder="Location">
+      </div>
+    </section>
+
+    <!-- TABS -->
+    <section class="tabs">
+      <button onclick="openResume()">Resume</button>
+      <button class="active">Private Info</button>
+      <button onclick="viewSalary()">Salary Info</button>
+      <button>Security</button>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content">
+
+      <!-- LEFT COLUMN -->
+      <div class="column">
+        <label>Date of Birth</label>
+        <input type="date" class="editable">
+
+        <label>Residing Address</label>
+        <input class="editable" placeholder="Address">
+
+        <label>Nationality</label>
+        <input class="editable" placeholder="Nationality">
+
+        <label>Personal Email</label>
+        <input class="editable" placeholder="Personal Email">
+
+        <label>Gender</label>
+        <select class="editable">
+          <option>Select</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+
+        <label>Marital Status</label>
+        <select class="editable">
+          <option>Select</option>
+          <option>Single</option>
+          <option>Married</option>
+        </select>
+
+        <label>Date of Joining</label>
+        <input type="date" class="editable">
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="column">
+        <h4 class="section-title">Bank Details</h4>
+
+        <label>Account Number</label>
+        <input class="editable" placeholder="Account Number">
+
+        <label>Bank Name</label>
+        <input class="editable" placeholder="Bank Name">
+
+        <label>IFSC Code</label>
+        <input class="editable" placeholder="IFSC Code">
+
+        <label>PAN No</label>
+        <input class="editable" placeholder="PAN Number">
+
+        <label>UAN No</label>
+        <input class="editable" placeholder="UAN Number">
+
+        <label>Emp Code</label>
+        <input class="editable" placeholder="Employee Code">
+      </div>
+
+    </section>
+
+  </main>
+
+  <script>
+    const editBtn = document.getElementById("editBtn");
+    const inputs = document.querySelectorAll(".editable");
+
+    let isEditable = false;
+
+    // Initially disable all fields
+    inputs.forEach(input => input.disabled = true);
+
+    editBtn.addEventListener("click", () => {
+      isEditable = !isEditable;
+
+      inputs.forEach(input => input.disabled = !isEditable);
+
+      editBtn.textContent = isEditable ? "Disable Edit" : "Enable Edit";
+      editBtn.classList.toggle("active");
+    });
+
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
+    function openResume() {
+      window.location.href = "resume.html";
+    }
+
+    function viewSalary() {
+      window.location.href = "salary.html";
+    }
+    
+    function viewEmployee() {
+      window.location.href = "employees.html";
+    }
+  </script>
+
+</body>
+
+</html>

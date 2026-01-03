@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Employees | Admin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/style/employee.css">
+</head>
+
+<body>
+
+  <!-- ================= ADD EMPLOYEE MODAL ================= -->
+  <div id="employeeModal" class="modal">
+    <div class="modal-content">
+      <h2>Add Employee</h2>
+
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" id="empName" placeholder="Enter employee name">
+      </div>
+
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="empEmail" placeholder="Enter employee email">
+      </div>
+
+      <div class="form-group">
+        <label>Role</label>
+        <input type="text" id="empRole" placeholder="Enter role">
+      </div>
+
+      <div class="btn-row">
+        <button class="cancel" onclick="closeModal()">Cancel</button>
+        <button class="save" onclick="saveEmployee()">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= TOP NAV ================= -->
+  <div class="top-nav">
+    <div class="nav-left">
+      <div class="logo">DayFlow</div>
+      <div class="nav-item active">Employees</div>
+      <div class="nav-item" onclick="viewAttendance()">Attendance</div>
+      <div class="nav-item" onclick="viewTimeoff()">Time Off</div>
+    </div>
+
+    <div class="nav-right" onclick="toggleDropdown()">
+      <span class="profile-name">Admin</span>
+
+      <div class="profile-pic">
+        <img src="assets/images/avatar.jpg">
+      </div>
+
+      <div id="profileDropdown" class="dropdown">
+        <div class="dropdown-item" onclick="view_profile()">My Profile</div>
+        <div class="dropdown-item logout" onclick="logout()">Logout</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ================= ACTION BAR ================= -->
+  <div class="action-bar">
+    <button class="new-btn" onclick="openModal()">Add Employee</button>
+  </div>
+
+  <!-- ================= EMPLOYEE GRID ================= -->
+  <div class="employee-grid">
+
+    <!-- Employee Card -->
+    <div class="employee-card">
+      <div class="employee-avatar">
+        <img src="assets/images/avatar.jpg" alt="User">
+      </div>
+      <div class="employee-name">JAY PATEL</div>
+    </div>
+
+    <div class="employee-card">
+      <div class="employee-avatar">
+        <img src="assets/images/avatar.jpg" alt="User">
+      </div>
+      <div class="employee-name">JISHNU SHARMA</div>
+    </div>
+
+    <div class="employee-card">
+      <div class="employee-avatar">
+        <img src="assets/images/avatar.jpg" alt="User">
+      </div>
+      <div class="employee-name">DARSHIT RATHOD</div>
+    </div>
+
+    <div class="employee-card">
+      <div class="employee-avatar">
+        <img src="assets/images/avatar.jpg" alt="User">
+      </div>
+      <div class="employee-name">JAIVAL SHAH</div>
+    </div>
+
+    <div class="employee-card">
+      <div class="employee-avatar">
+        <img src="assets/images/avatar.jpg" alt="User">
+      </div>
+      <div class="employee-name">JAY PRAJAPATI</div>
+    </div>
+
+    <div class="employee-card">
+      <div class="employee-avatar">
+        <img src="assets/images/avatar.jpg" alt="User">
+      </div>
+      <div class="employee-name">JOGI BHUPENDRA</div>
+    </div>
+
+    <div class="employee-card">
+      <div class="employee-avatar">
+        <img src="assets/images/avatar.jpg" alt="User">
+      </div>
+      <div class="employee-name">RAMAN RAMA</div>
+    </div>
+
+    <div class="employee-card">
+      <div class="employee-avatar">
+        <img src="assets/images/avatar.jpg" alt="User">
+      </div>
+      <div class="employee-name">SHUBHAM PANCHAL</div>
+    </div>
+
+    <div class="employee-card">
+      <div class="employee-avatar">
+        <img src="assets/images/avatar.jpg" alt="User">
+      </div>
+      <div class="employee-name">SAKIL AHEMAD</div>
+    </div>
+
+  </div>
+  <script>
+    function openModal() {
+      document.getElementById("employeeModal").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("employeeModal").style.display = "none";
+    }
+
+    window.onclick = function (e) {
+      let modal = document.getElementById("employeeModal");
+      if (e.target === modal) {
+        closeModal();
+      }
+    }
+
+    function saveEmployee() {
+      let name = document.getElementById("empName").value;
+
+      if (name.trim() === "") {
+        alert("Name is required");
+        return;
+      }
+
+      // OPTIONAL: append new employee card dynamically
+      const grid = document.querySelector(".employee-grid");
+      const card = document.createElement("div");
+      card.className = "employee-card";
+      card.innerHTML = `
+      <div class="employee-avatar">
+        <img src="assets/images/avatar.jpg">
+      </div>
+      <div class="employee-name">${name.toUpperCase()}</div>
+  `;
+      grid.appendChild(card);
+
+      closeModal();
+    }
+
+    function toggleDropdown() {
+      const dropdown = document.getElementById("profileDropdown");
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    }
+
+    // Close dropdown when clicking outside
+    document.addEventListener("click", function (event) {
+      const dropdown = document.getElementById("profileDropdown");
+      const profile = document.querySelector(".nav-right");
+
+      if (!profile.contains(event.target)) {
+        dropdown.style.display = "none";
+      }
+    });
+
+    function logout() {
+      localStorage.removeItem("loggedInUser");
+      window.location.href = "login.html";
+    }
+
+    function view_profile() {
+      window.location.href = "view_profile.html";
+    }
+
+    function viewAttendance() {
+      window.location.href = "admin_attendance.html";
+    }
+
+    function viewTimeoff() {
+      window.location.href = "timeoff_admin.html";
+    }
+
+  </script>
+</body>
+
+</html>
